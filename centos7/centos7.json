@@ -107,6 +107,7 @@
         "sed -i -e '/^#NAutoVTs/aNAutoVTs=2' /etc/systemd/logind.conf",
         "echo {{user `system_hostname`}}.{{user `system_domain`}} > /etc/hostname",
         "sed -i -e 's/^search .*/search {{user `system_domain`}}/' /etc/resolv.conf",
+        "echo 'export TZ=:/etc/localtime' | sudo tee /etc/profile.d/tz.sh > /dev/null",
         "echo === Extra System Settings ===",
         "sed -r -i -e '/ext4/s|UUID=[^ ]* (.*)|LABEL=/     \\1|' /etc/fstab",
         "sed -r -i -e '/swap/s|UUID=[^ ]* (.*)|LABEL=SWAP  \\1|' /etc/fstab",
