@@ -9,7 +9,7 @@
     "os_arch":          "x86_64",
     "os_codename":      "centos",
     "os_version":       "7",
-    "os_version_build": "1611",
+    "os_version_build": "1708",
     "os_short_arch":    "64",
     "os_type":          "RedHat_64",
     "system_disk_size": "8192",
