@@ -26,6 +26,8 @@ Vagrant installation instructions can be found [here](https://www.vagrantup.com/
 
 Virtualbox installation instructions can be found [here](https://www.virtualbox.org/wiki/Downloads).
 
+As of CentOS 7.4.1708 Virtualbox 5.1.28 or higher is required.
+
 #### Parallels
 
 Parallels installation instructions can be found [here](https://www.parallels.com/eu/products/desktop/resources/).

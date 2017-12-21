@@ -27,6 +27,23 @@ Vagrant installation instructions can be found [here](https://www.vagrantup.com/
 
 Virtualbox installation instructions can be found [here](https://www.virtualbox.org/wiki/Downloads).
 
+As of CentOS 7.4.1708 Virtualbox 5.1.28 or higher is required.
+
+#### Parallels
+
+Parallels installation instructions can be found [here](https://www.parallels.com/eu/products/desktop/resources/).
+
+From Parallels Desktop version 11 onwards Pro or Business edition is required.
+
+[Parallels Virtualization SDK](http://www.parallels.com/download/pvsdk/) is
+also required.
+
+#### VMware
+
+VMware installation instructions will depend on the VMware product that you
+have. Go to your product page at [VMware](https://www.vmware.com) and check
+for the appropriate documentation.
+
 ### Installation
 
 Nothing special to be done. Just download the template that you wish to use.
