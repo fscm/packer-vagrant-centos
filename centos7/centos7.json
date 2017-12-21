@@ -12,7 +12,7 @@
     "os_version_build": "1708",
     "os_short_arch":    "64",
     "os_type":          "RedHat_64",
-    "os_type_alt":      "?????????",
+    "os_type_alt":      "centos",
     "system_disk_size": "8192",
     "system_domain":    "marsh",
     "system_hostname":  "centos",
@@ -131,6 +131,55 @@
         ["modifyvm", "{{.Name}}", "--usb", "off"],
         ["modifyvm", "{{.Name}}", "--vrde", "off"]
       ]
+    },
+    {
+      "name":                           "vmware",
+      "type":                           "vmware-iso",
+      "boot_wait":                      "10s",
+      "disk_size":                      "{{user `system_disk_size`}}",
+      "disk_type_id":                   "0",
+      "guest_os_type":                  "{{user `os_type_alt`}}-{{user `os_short_arch`}}",
+      "headless":                       "{{user `headless`}}",
+      "http_directory":                 "http",
+      "iso_checksum":                   "{{user `checksum_value`}}",
+      "iso_checksum_type":              "{{user `checksum_type`}}",
+      "iso_target_path":                "../builds/cache/CentOS-{{user `os_version`}}-{{user `os_arch`}}-NetInstall-{{user `os_version_build`}}.iso",
+      "output_directory":               "../builds/sandbox/{{build_type}}",
+      "shutdown_command":               "echo '{{user `system_pwd`}}' | sudo -S /sbin/shutdown -hP now",
+      "ssh_username":                   "root",
+      "ssh_password":                   "{{user `system_pwd`}}",
+      "ssh_port":                       22,
+      "ssh_wait_timeout":               "3600s",
+      "vm_name":                        "{{user `os_codename`}}{{user `os_short_arch`}}-{{isotime \"20060102150405\"}}",
+      "vmdk_name":                      "{{user `os_codename`}}{{user `os_short_arch`}}-{{isotime \"20060102150405\"}}",
+      "vmx_remove_ethernet_interfaces": "true",
+      "boot_command": [
+        "<tab> ",
+        "text ",
+        "inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/kickstart.cfg ",
+        "inst.kdump_addon=off ",
+        "inst.nosave=all<enter>"
+      ],
+      "iso_urls": [
+        "../builds/isos/CentOS-{{user `os_version`}}-{{user `os_arch`}}-NetInstall-{{user `os_version_build`}}.iso",
+        "http://buildlogs.centos.org/rolling/{{user `os_version`}}/isos/{{user `os_arch`}}/CentOS-{{user `os_version`}}-{{user `os_arch`}}-NetInstall-{{user `os_version_build`}}.iso",
+        "http://isoredirect.centos.org/centos/{{user `os_version`}}/isos/{{user `os_arch`}}/CentOS-{{user `os_version`}}-{{user `os_arch`}}-NetInstall-{{user `os_version_build`}}.iso"
+      ],
+      "vmx_data": {
+        "cpuid.coresPerSocket":     "1",
+        "ehci.present":             "FALSE",
+        "ethernet0.connectionType": "nat",
+        "ethernet0.virtualDev":     "e1000",
+        "floppy0.present":          "FALSE",
+        "hpet0.present":            "TRUE",
+        "memsize":                  "{{user `system_memory`}}",
+        "numvcpus":                 "1",
+        "serial0.present":          "FALSE",
+        "sound.present":            "FALSE",
+        "usb.present":              "FALSE",
+        "vhv.enable":               "TRUE",
+        "virtualHW.version":        "10"
+      }
     }
   ],
   "provisioners": [
@@ -168,6 +217,19 @@
         "/media/guest_additions_cd/VBoxLinuxAdditions.run --nox11",
         "umount /media/guest_additions_cd",
         "rm -rf /media/guest_additions_cd",
+        "yum clean all"
+      ]
+    },
+    {
+      "only":           ["vmware"],
+      "type":           "shell",
+      "inline_shebang": "/bin/bash -e",
+      "inline": [
+        "unset HISTFILE",
+        "history -cw",
+        "echo === System Packages ===",
+        "yum -y install open-vm-tools bzip2",
+        "yum -y erase linux-firmware",
         "yum clean all"
       ]
     },
