@@ -33,7 +33,7 @@
       "http_directory":         "http",
       "iso_checksum":           "{{user `checksum_value`}}",
       "iso_checksum_type":      "{{user `checksum_type`}}",
-      "iso_target_path":        "../builds/cache/debian-{{user `os_version`}}-{{user `os_arch`}}-netinst.iso",
+      "iso_target_path":        "../builds/cache/CentOS-{{user `os_version`}}-{{user `os_arch`}}-NetInstall-{{user `os_version_build`}}.iso",
       "output_directory":       "../builds/sandbox/{{build_type}}",
       "parallels_tools_mode":   "upload",
       "parallels_tools_flavor": "lin",
