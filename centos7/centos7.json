@@ -19,7 +19,7 @@
     "system_locale":    "en_US",
     "system_memory":    "384",
     "system_pwd":       "centos",
-    "system_timezone":  "Europe/Lisbon",
+    "system_timezone":  "UTC",
     "system_user":      "pollywog"
   },
   "builders": [
