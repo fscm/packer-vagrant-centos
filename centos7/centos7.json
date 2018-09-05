@@ -94,7 +94,7 @@
       "output_directory":     "../builds/sandbox/{{build_type}}",
       "shutdown_command":     "echo '{{user `system_pwd`}}' | sudo -S /sbin/shutdown -hP now",
       "ssh_username":         "root",
-      "ssh_password":         "centos",
+      "ssh_password":         "{{user `system_pwd`}}",
       "ssh_port":             22,
       "ssh_wait_timeout":     "3600s",
       "vm_name":              "{{user `os_codename`}}{{user `os_short_arch`}}-{{isotime \"20060102150405\"}}",
