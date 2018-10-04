@@ -1,4 +1,6 @@
 # CentOS Box
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffscm%2Fpacker-vagrant-centos.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffscm%2Fpacker-vagrant-centos?ref=badge_shield)
+
 
 Packer templates to build Vagrant CentOS boxes.
 
@@ -79,3 +81,6 @@ who participated in this project.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE)
 file for details
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffscm%2Fpacker-vagrant-centos.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffscm%2Fpacker-vagrant-centos?ref=badge_large)
