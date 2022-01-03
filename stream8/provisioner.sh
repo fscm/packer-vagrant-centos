@@ -2,7 +2,7 @@
 #
 # Shell script to provision the CentOS box.
 #
-# Copyright 2020-2021, Frederico Martins
+# Copyright 2020-2022, Frederico Martins
 #   Author: Frederico Martins <http://github.com/fscm>
 #
 # SPDX-License-Identifier: MIT
